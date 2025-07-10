@@ -1,0 +1,262 @@
+
+.dashboardLayout{
+    display: grid;
+    grid-template-columns: 250px 2fr 2fr 2fr;
+    grid-template-rows: 0.2fr 3fr;
+    grid-template-areas:
+    "sidebar header header header"
+    "sidebar mainContent mainContent mainContent";
+    height: 100vh;
+    color: var(--text-color);
+    background-color: var(--main-bg);
+    min-height: 100vh;
+}
+
+
+.sidebar {
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    grid-area: sidebar;
+    min-height: 100%;
+    min-width: 250px;
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontal centering */
+    padding-top: 1rem;   /* Optional spacing */
+;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 100vh;
+
+}
+
+.sidebar img {
+    border-radius: 100%;
+    border: 5px solid var(--header-bg);
+    width: 100px;
+    height: 100px;
+}
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+
+    align-items: flex-start; /* this makes children (your SidebarLink) align left */
+    width: 100%;             /* ensures full width so alignment takes effect */
+    padding-left: 1rem;      /* optional: indent the links a little */
+    padding-right: 1rem;
+}
+
+
+.mainContent {
+    background-color: var(--main-bg);
+    grid-area: mainContent;
+
+
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    grid-area: header;
+    align-items: center;
+    padding: 0 1.5rem;
+    height: 100%;
+    width: 100%;
+    background-color: var(--header-bg, #222);
+    color: var(--header-text, #fff);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.headerTitle {
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+/* Right-side container (holds search, notifications, user, etc.) */
+.headerRight {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    gap: 1rem;
+}
+.headerRight {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    gap: 1rem;
+}
+
+/* Search bar styles */
+.searchBar {
+    display: flex;
+    align-items: center;
+    background-color: var(--search-bg, #333);
+    border-radius: 20px;
+    padding: 0.3rem 0.8rem;
+    color: var(--search-icon, #aaa);
+    width: 200px;
+
+}
+
+.searchBar input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--header-text, #fff);
+    margin-left: 0.5rem;
+    width: 100%;
+    font-size: 1rem;
+}
+
+/* Icon buttons like notifications, user, etc. */
+.iconButton {
+    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--header-text, #fff);
+    font-size: 1.4rem;
+    padding: 0.3rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Notification count badge */
+.iconButton[data-count]:after {
+    content: attr(data-count);
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #e03e3e;
+    color: white;
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    box-shadow: 0 0 2px #900;
+}
+
+/* Dropdown container */
+.userMenuWrapper {
+    position: relative;
+}
+
+/* Dropdown menu */
+.userDropdown {
+    position: absolute;
+    right: 0;
+    top: 110%;
+    background: var(--dropdown-bg, #333);
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 0.5rem 0;
+    min-width: 140px;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+}
+
+.userDropdown button {
+    background: transparent;
+    border: none;
+    padding: 0.5rem 1rem;
+    color: var(--header-text, #fff);
+    text-align: left;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+
+.userDropdown button:hover {
+    background: var(--dropdown-hover, #555);
+}
+
+.menuButton {
+    display: none;
+}
+
+.closeButton {
+    display: none;
+}
+.sidebarOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+
+
+@media (max-width: 800px) {
+
+    .sidebarOverlay {
+        opacity: 1;
+        visibility: visible;
+    }
+    .dashboardLayout {
+        display: grid;
+        grid-template-columns: 2fr 2fr 2fr 2fr;
+        grid-template-rows: 0.2fr 3fr;
+        grid-template-areas:
+    "header header header header"
+    "mainContent mainContent mainContent mainContent";
+    }
+    .sidebar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 120vh;
+        width: 250px;
+        background-color: var(--sidebar-bg);
+        z-index: 1000;
+        transition: transform 0.3s ease;
+
+    }
+
+    .closed {
+        transform: translateX(-100%);
+    }
+
+    .open {
+        transform: translateX(0);
+    }
+
+    .menuButton {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--header-text, #fff);
+    }
+
+    .closeButton {
+        display: block;
+        align-self: flex-end;
+        margin: 1rem;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--sidebar-text, #fff);
+    }
+}
+
+
+

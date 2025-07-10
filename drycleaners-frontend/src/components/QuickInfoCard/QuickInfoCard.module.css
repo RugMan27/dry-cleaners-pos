@@ -1,0 +1,45 @@
+.card {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: 0.2s ease;
+    min-width: 200px;
+    gap: 1rem;
+    color: white;
+    font-size: 0.9rem;
+}
+.icon {
+    font-size: 2rem;
+}
+
+/* Color cycle */
+.card:nth-child(7n+1) {
+    background-color: var(--theme-red);
+}
+.card:nth-child(7n+2) {
+    background-color: var(--theme-orange);
+}
+.card:nth-child(7n+3) {
+    background-color: var(--theme-yellow);
+
+}
+.card:nth-child(7n+4) {
+    background-color: var(--theme-green);
+}
+.card:nth-child(7n+5) {
+    background-color: var(--theme-blue);
+}
+.card:nth-child(7n+6) {
+    background-color: var(--theme-indigo);
+}
+.card:nth-child(7n+7) {
+    background-color: var(--theme-purple);
+}
+
+/* Optional hover effect */
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}

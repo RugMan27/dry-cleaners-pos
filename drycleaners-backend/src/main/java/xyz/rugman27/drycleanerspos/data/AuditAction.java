@@ -1,0 +1,47 @@
+package xyz.rugman27.drycleanerspos.data;
+
+public enum AuditAction {
+    CREATE_CUSTOMER,
+    UPDATE_CUSTOMER,
+    DELETE_CUSTOMER,
+    GET_CUSTOMERS,
+
+    CREATE_INVOICE,
+    UPDATE_INVOICE,
+    UPDATE_INVOICE_PAYMENT,
+    DELETE_INVOICE,
+    GET_INVOICES,
+
+    LOGIN,
+    LOGOUT,
+    FAILED_LOGIN,
+
+    CHANGE_PASSWORD,
+
+    CREATE_EMPLOYEE,
+    UPDATE_EMPLOYEE,
+    DELETE_EMPLOYEE,
+    GET_EMPLOYEES,
+    ENABLE_EMPLOYEE,
+    DISABLE_EMPLOYEE,
+
+    CREATE_PRESET_ITEM,
+    UPDATE_PRESET_ITEM,
+    DELETE_PRESET_ITEM,
+    GET_PRESET_ITEMS,
+    ENABLE_PRESET_ITEM,
+    DISABLE_PRESET_ITEM,
+
+    CREATE_EVENT,
+    UPDATE_EVENT,
+    DELETE_EVENT,
+    GET_EVENTS,
+
+
+    PROCESS_PAYMENT,
+    REFUND_PAYMENT,
+
+
+
+    // Add other actions specific to your business logic here
+}

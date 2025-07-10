@@ -1,0 +1,177 @@
+/* Label styling */
+.formLabel {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #333;
+    width: 100%;
+    max-width: 400px;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    color: var(--text-color);
+}
+
+/* Input fields */
+
+
+/* Notes-specific field */
+.notesField {
+    min-height: 100px;
+    margin-top: 0.25rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: var(--search-bg);
+    width: 100%;
+    box-sizing: border-box;
+    resize: vertical;
+    max-width: 400px;
+    color: var(--text-color);
+}
+
+/* Custom toggle switch for enabled */
+.enabledSwitchLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.enabledSwitch {
+    position: relative;
+    width: 44px;
+    height: 24px;
+}
+
+.enabledSwitch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+
+.enabledSwitch input:checked + .enabledSlider {
+    background-color: var(--theme-green);
+}
+
+.enabledSwitch input:checked + .enabledSlider::before {
+    transform: translateX(20px);
+}
+
+/* Submit button */
+.submitButton {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: var(--theme-green);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    max-width: 400px;
+    width: 100%;
+    transition: 0.2s ease;
+    margin-left: 25%;
+}
+
+.submitButton:disabled {
+    cursor: not-allowed;
+}
+
+.submitButton:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+
+
+.deleteButton {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: var(--theme-red);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    max-width: 400px;
+    width: 100%;
+    transition: 0.2s ease;
+    margin-right: 25%;
+}
+
+.padding:disabled {
+    cursor: not-allowed;
+}
+
+.padding:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Profile picture */
+.previewImage {
+    margin-top: 0.5rem;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 2px solid #ccc;
+}
+
+/* Form base */
+.formGrid {
+    width: 100%;
+}
+
+/* Container for the whole form */
+.formContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    padding: 1rem;
+    width: 100%;
+    justify-content: center;
+}
+
+/* Left/right sections of form */
+.formSection {
+    flex: 1 1 50%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Checkbox label alignment */
+.enabledCheckboxLabel {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bold;
+}
+
+/* Submit button section */
+.buttonContainer {
+
+    margin-top: 1rem;
+    width: 100%;
+    flex: 1 1 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width: 800px) {
+    .submitButton,
+    .deleteButton{
+        margin: 0;
+    }
+}

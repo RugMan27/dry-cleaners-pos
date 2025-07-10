@@ -1,0 +1,33 @@
+.link {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--sidebar-link-text);
+    background-color: var(--sidebar-link-bg);
+    transition: background 0.2s, color 0.2s;
+    width: 100%;
+}
+
+.link:hover {
+    background-color: var(--sidebar-link-hover-bg);
+    color: var(--sidebar-link-hover-text);
+}
+
+.active {
+    background-color: var(--sidebar-link-active-bg);
+    color: var(--sidebar-link-active-text);
+}
+
+.icon {
+    margin-right: 1rem; /* space between icon and text */
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.text {
+    flex: 1;
+}
